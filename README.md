@@ -1,6 +1,5 @@
-##########
 Series-cli
-##########
+==========
 
 A simple CLI programm written in Python that uses the
 TvMaze API (http://www.tvmaze.com/api).
@@ -10,7 +9,7 @@ This project rests on the shoulders of two great libraries:
     Click    https://github.com/pallets/click
 
 Quick install:
-==============
+--------------
 (stout is in Slovenian, sorry for that)
 
 Obviously first get [Git](https://git-scm.com/). Follow this [tutorial](https://help.github.com/articles/set-up-git/).
@@ -20,14 +19,13 @@ go to [Python.org](http://python.org)
 
 Now then:
 
-#. Move to the direcotry where you want to work from and 
-clone this repository `git clone https://github.com/dasdachs/series-cli.git`
-#. Create a virtual environment `python -m venv virtualenv`
-#. Install packages `pip install -r requirements.txt`
-#. Run the app: `python series-cli.py`
+1. Move to the direcotry where you want to work from and clone this repository `git clone https://github.com/dasdachs/series-cli.git`
+2. Create a virtual environment `python -m venv virtualenv`
+3. Install packages `pip install -r requirements.txt`
+4. Run the app: `python series-cli.py`
 
 Misc:
-=====
+-----
 
 I am working on a API wrapper fot TVMaze, so imporvements for Python users are comming.
 
