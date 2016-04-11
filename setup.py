@@ -1,15 +1,21 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 setup(
-    name="series-cli",
+    name="series",
     version="0.1",
+    author="dasDachs",
+    license="MIT",
+    packages=find_packages(),
+    include_package_data=True,
     install_requires=[
         "Click",
         "Requests",
+        "Colorama",
     ],
-    entry_points="""
-        [console_scripts]
-        series=series-cli:main
-    """,
+    entry_points = {
+        'console_scripts': [
+            'show = series.base:main',
+        ],
+    },
 )

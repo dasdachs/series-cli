@@ -40,7 +40,7 @@ def main():
     next_episode = series['_links'].get('nextepisode')['href']
     if prev_episode:
         prev_episode = requests.get(prev_episode).json()
-        prev_episode = '| Title: {} | Air date: {} | Season, Episode: {}'.format(
+        prev_episode = 'Title: {} | Air date: {} | Season, Episode: {}'.format(
             prev_episode['name'], prev_episode['airdate'],
             (str(prev_episode['season']) + ", " + str(prev_episode['number']))
         )
@@ -51,7 +51,7 @@ def main():
                        """
     if next_episode:
         next_episode = requests.get(next_episode).json()
-        next_episode = '| Title: {} | Air date: {} | Season, Episode: {}'.format(
+        next_episode = 'Title: {} | Air date: {} | Season, Episode: {}'.format(
             next_episode['name'], next_episode['airdate'],
             (str(next_episode['season']) + ", " + str(next_episode['number']))
         )

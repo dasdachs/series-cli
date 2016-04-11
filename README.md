@@ -10,7 +10,6 @@ This project rests on the shoulders of two great libraries:
 
 Quick install:
 --------------
-(stout is in Slovenian, sorry for that)
 
 Obviously first get [Git](https://git-scm.com/). Follow this [tutorial](https://help.github.com/articles/set-up-git/). Of course you could just download this repository without the use of Git, but that would just be boring.
 
@@ -19,13 +18,13 @@ go to [Python.org](http://python.org)
 
 ### Install using setup.py
 
-To use this app globally (from anywhere in your command line) do the following:
+To use this app as a script (from anywhere in your command line or in a virtual environment) do the following:
 
 1. Move to the directory where you want to work from and clone this repository
  `git clone https://github.com/dasdachs/series-cli.git`
 2. CD into the directory `series-cli` with `cd series-cli`
 3. Run `python setup.py install`
-4. Run the app: `python series-cli.py`
+4. Run the app: `show` and type in the name of the show as is
 
 ### Virtual environment
 
@@ -35,7 +34,7 @@ If you do not wish to install globally, create a virtual environment and install
  `git clone https://github.com/dasdachs/series-cli.git`
 2. Create a virtual environment `python -m venv virtualenv`
 3. Install packages `pip install -r requirements.txt`
-4. Run the app: `python series-cli.py`
+4. Run the app: `python series/base.py` (or move series/base.py to your root)
 
 Misc:
 -----
