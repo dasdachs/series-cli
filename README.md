@@ -1,6 +1,9 @@
 Series-cli
 ==========
 
+[![Build Status](https://travis-ci.org/dasdachs/series-cli.svg?branch=master)](https://travis-ci.org/dasdachs/series-cli)
+[![PyPI](https://img.shields.io/pypi/pyversions/Django.svg?maxAge=2592000)]
+
 A simple CLI programm written in Python that uses the
 TvMaze API (http://www.tvmaze.com/api).
 
