@@ -16,6 +16,29 @@ import click
 import requests
 
 
+def get_data(name=None, url=None):
+    """
+    Get data about a series from TVMaze.
+
+    If the status is not OK or the content is empty, an assertion takse care of
+    that.
+
+    :param name: a string, the name of a show
+    :pram url: a string, the url from the TVMaze API
+    :return: a dict, parsed from a JSON
+    """
+    if name:
+        data = requests.get(
+            'http://api.tvmaze.com/singlesearch/shows?q={}'.format(name)
+        )
+    elif url:
+        data = requests.get(url)
+    else:
+        raise TypeError("No input given. Give a name of a show or a URL.")
+    assert data.status_code == 200, "Problems with the query or connection."
+    assert data, "No results. Try to refine your query."
+    return data.json()
+
 @click.command()
 def main():
     """
@@ -30,27 +53,14 @@ def main():
         name = raw_input(prompt)
     except NameError:
         name = input(prompt)
-    # The app takes user input
-    # constructs a requests
-    # parses the response JSON
-    # end prints the values
-    series = requests.get(
-        'http://api.tvmaze.com/singlesearch/shows?q={}'.format(name)
-    )
-    assert series.status_code == 200, "Problems with the query or connection."
-    # saftey check
-    if not series:
-        click.echo(
-            "Your query returned no results. Refine it or try something else."
-        )
-        sys.exit()
-    # prep the data
-    series = series.json()
+    # Get the show
+    series = get_data(name=name)
+    # Get previus and next episode
     prev_episode = "No previous episode. New show?"
     next_episode = "No next episode. Show ended?"
     for elm in series['_links'].keys():
         if elm.endswith('episode'):
-            episode = requests.get(series['_links'][elm]['href']).json()
+            episode = get_data(url=series['_links'][elm]['href'])
             episode = 'Title: {} | Air date: {} | Season, Episode: {}'.format(
                                       episode['name'], episode['airdate'],
                                       (str(episode['season']) + ", " + str(episode['number']))
@@ -59,7 +69,6 @@ def main():
                 next_episode = episode
             elif elm.startswith('prev'):
                 prev_episode = episode
-
     # stdout
     click.secho(series['name'] + ' ', fg='blue', nl=False)
     click.echo(

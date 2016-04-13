@@ -7,6 +7,12 @@ __pycache__/
 .Python
 venv/
 build/
+*.egg-info
+*.EGG-INFO
+*.egg
+*.EGG
+*.eggs
+*.EGGS
 
 # Installer logs
 pip-log.txt

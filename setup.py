@@ -8,10 +8,12 @@ setup(
     license="MIT",
     packages=find_packages(),
     include_package_data=True,
+    setup_requires=["pytest-runner",],
     install_requires=[
         "Click",
         "Requests",
         "Colorama",
+        "pytest",
     ],
     entry_points = {
         'console_scripts': [
