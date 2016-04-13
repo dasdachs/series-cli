@@ -39,20 +39,22 @@ def get_data(name=None, url=None):
     assert data, "No results. Try to refine your query."
     return data.json()
 
+
 @click.command()
-def main():
+def main(name=None):
     """
     A simple CLI interface to show you the date of the prevoius and
     next air date of a given series and optionaly display some info.
 
     Data provided by the magic of TVMaze (www.tvmaze.com)
     """
-    # Python 2 compatibility
-    prompt = 'Name of the series: '
-    try:
-        name = raw_input(prompt)
-    except NameError:
-        name = input(prompt)
+    if not name:
+        # Python 2 compatibility
+        prompt = 'Name of the series: '
+        try:
+            name = raw_input(prompt)
+        except NameError:
+            name = input(prompt)
     # Get the show
     series = get_data(name=name)
     # Get previus and next episode
